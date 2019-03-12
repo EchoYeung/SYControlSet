@@ -10,6 +10,7 @@
 
 NSString *const SYPwdInputDidBecomeFirstResponderNotification = @"SYPwdInputDidBecomeFirstResponderNotification";
 NSString *const SYPwdInputDidResignFirstResponderNotification = @"SYPwdInputDidResignFirstResponderNotification";
+NSString *const SYPwdInputDidChangeNotification = @"SYPwdInputDidChangeNotification";
 
 
 @interface SYTradePwdInput()<UIKeyInput>
@@ -71,6 +72,14 @@ NSString *const SYPwdInputDidResignFirstResponderNotification = @"SYPwdInputDidR
     self.borderWidth = 1.0;
     self.minWidth = 45.0;
     self.string = [NSMutableArray array];
+}
+- (void)sendInputDidChangeNotification{
+    __weak typeof(self) weakSelf = self;
+    //密码的绘制异步 绘制完成后在通知内容的变更
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self sendActionsForControlEvents:UIControlEventEditingChanged];
+        [[NSNotificationCenter defaultCenter] postNotificationName:SYPwdInputDidChangeNotification object:weakSelf];
+    });
 }
 - (void)_fillRect:(CGRect)rect clip:(BOOL)clip {
     if (self.unitSpace < 2) {
@@ -208,8 +217,12 @@ NSString *const SYPwdInputDidResignFirstResponderNotification = @"SYPwdInputDidR
 - (BOOL)becomeFirstResponder{
     BOOL result = [super becomeFirstResponder];
     if (result) {
+        __weak typeof(self) weakSelf = self;
         [self sendActionsForControlEvents:UIControlEventEditingDidBegin];//弹出键盘
-        [[NSNotificationCenter defaultCenter] postNotificationName:SYPwdInputDidBecomeFirstResponderNotification object:nil];
+        [[NSNotificationCenter defaultCenter] postNotificationName:SYPwdInputDidBecomeFirstResponderNotification object:weakSelf];
+        if (self.delegate && [self.delegate respondsToSelector:@selector(tradePwsInputDidBeginEditing:)]) {
+            [self.delegate tradePwsInputDidBeginEditing:weakSelf];
+        }
     }
     return result;
 }
@@ -219,8 +232,12 @@ NSString *const SYPwdInputDidResignFirstResponderNotification = @"SYPwdInputDidR
 - (BOOL)resignFirstResponder{
     BOOL result = [super resignFirstResponder];
     if (result) {
+        __weak typeof(self) weakSelf = self;
         [self sendActionsForControlEvents:UIControlEventEditingDidEnd];//收起键盘
-        [[NSNotificationCenter defaultCenter] postNotificationName:SYPwdInputDidResignFirstResponderNotification object:nil];
+        [[NSNotificationCenter defaultCenter] postNotificationName:SYPwdInputDidResignFirstResponderNotification object:weakSelf];
+        if (self.delegate && [self.delegate respondsToSelector:@selector(tradePwsInputDidEndEditing:)]) {
+            [self.delegate tradePwsInputDidEndEditing:weakSelf];
+        }
     }
     return result;
 }
@@ -233,18 +250,16 @@ NSString *const SYPwdInputDidResignFirstResponderNotification = @"SYPwdInputDidR
         return;
     }
     [self.string addObject:text];
-    [self sendActionsForControlEvents:UIControlEventEditingChanged];
     [self setNeedsDisplay];
-    
+    [self sendInputDidChangeNotification];
 }
 - (void)deleteBackward{
     if ([self hasText] == NO) {
         return;
     }
     [self.string removeLastObject];
-    [self sendActionsForControlEvents:UIControlEventEditingChanged];
     [self setNeedsDisplay];
-    
+    [self sendInputDidChangeNotification];
 }
 #pragma mark - UITextInputTraits
 - (UIKeyboardType)keyboardType{

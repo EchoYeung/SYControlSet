@@ -7,14 +7,17 @@
 //
 //  交易密码输入控件
 #import <UIKit/UIKit.h>
+@protocol SYTradePwsInputDelegate;
 
 UIKIT_EXTERN NSString *const SYPwdInputDidBecomeFirstResponderNotification;
 UIKIT_EXTERN NSString *const SYPwdInputDidResignFirstResponderNotification;
+UIKIT_EXTERN NSString *const SYPwdInputDidChangeNotification;
 
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SYTradePwdInput : UIControl
+@property (nullable, nonatomic, weak) id<SYTradePwsInputDelegate> delegate;
 //获取用户输入内容
 @property (nullable, nonatomic, copy, readonly) NSString *text;
 //密码位数
@@ -23,6 +26,15 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL isSecureText;
 //单元格之间间隙
 @property (nonatomic, assign) NSInteger unitSpace;
+@end
+
+@protocol SYTradePwsInputDelegate <NSObject>
+
+@optional
+
+- (void)tradePwsInputDidBeginEditing:(SYTradePwdInput *)input;
+- (void)tradePwsInputDidEndEditing:(SYTradePwdInput *)input;
+
 @end
 
 NS_ASSUME_NONNULL_END

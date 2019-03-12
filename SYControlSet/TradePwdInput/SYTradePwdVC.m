@@ -18,13 +18,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.view addSubview:self.input];
-    [self.input addTarget:self action:@selector(tradePwsInputEditingChanged:) forControlEvents:UIControlEventEditingChanged];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tradePwsInputEditingChanged:) name:SYPwdInputDidChangeNotification object:nil];
 }
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self.input becomeFirstResponder];
 }
-- (void)tradePwsInputEditingChanged:(SYTradePwdInput *)input{
+- (void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+- (void)tradePwsInputEditingChanged:(NSNotification *)notification{
+    SYTradePwdInput *input = notification.object;
     NSLog(@"input %@",input.text);
 }
 - (SYTradePwdInput *)input{
