@@ -13,7 +13,7 @@ NSString *const SYPwdInputDidResignFirstResponderNotification = @"SYPwdInputDidR
 NSString *const SYPwdInputDidChangeNotification = @"SYPwdInputDidChangeNotification";
 
 
-@interface SYTradePwdInput()<UIKeyInput>
+@interface SYTradePwdInput()
 //单元格背景色
 @property (nonatomic, strong) UIColor *unitColor;
 //文本颜色
@@ -209,7 +209,7 @@ NSString *const SYPwdInputDidChangeNotification = @"SYPwdInputDidChangeNotificat
 #pragma mark - override(UIResponder)
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     [super touchesBegan:touches withEvent:event];
-//    [self becomeFirstResponder];
+    [self becomeFirstResponder];
 }
 - (BOOL)canBecomeFirstResponder{
     return YES;
@@ -265,5 +265,7 @@ NSString *const SYPwdInputDidChangeNotification = @"SYPwdInputDidChangeNotificat
 - (UIKeyboardType)keyboardType{
     return UIKeyboardTypeNumberPad;
 }
-
+- (BOOL)isSecureTextEntry{
+    return YES;
+}
 @end

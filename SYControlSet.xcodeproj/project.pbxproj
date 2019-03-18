@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6D1E895F223F371000E5C92C /* SYKeyObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D1E895E223F371000E5C92C /* SYKeyObject.m */; };
+		6D1E8962223F371F00E5C92C /* SYKeyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D1E8961223F371F00E5C92C /* SYKeyView.m */; };
+		6D1E8966223F894A00E5C92C /* SYKeyboardAccessoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D1E8965223F894A00E5C92C /* SYKeyboardAccessoryView.m */; };
 		6DB9E35D222CB72A00103CC8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DB9E35C222CB72A00103CC8 /* AppDelegate.m */; };
 		6DB9E365222CB72B00103CC8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6DB9E364222CB72B00103CC8 /* Assets.xcassets */; };
 		6DB9E368222CB72B00103CC8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6DB9E366222CB72B00103CC8 /* LaunchScreen.storyboard */; };
@@ -17,6 +20,7 @@
 		6DB9E396222D271100103CC8 /* SYCellData.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DB9E395222D271100103CC8 /* SYCellData.m */; };
 		6DB9E399222D291700103CC8 /* SYTradePwdVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DB9E398222D291700103CC8 /* SYTradePwdVC.m */; };
 		6DB9E39C222D2E8700103CC8 /* SYListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DB9E39B222D2E8700103CC8 /* SYListVC.m */; };
+		6DDAA407223B8A33007D76AD /* SYKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DDAA406223B8A33007D76AD /* SYKeyboard.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +41,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6D1E895D223F371000E5C92C /* SYKeyObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SYKeyObject.h; sourceTree = "<group>"; };
+		6D1E895E223F371000E5C92C /* SYKeyObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SYKeyObject.m; sourceTree = "<group>"; };
+		6D1E8960223F371F00E5C92C /* SYKeyView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SYKeyView.h; sourceTree = "<group>"; };
+		6D1E8961223F371F00E5C92C /* SYKeyView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SYKeyView.m; sourceTree = "<group>"; };
+		6D1E8964223F894A00E5C92C /* SYKeyboardAccessoryView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SYKeyboardAccessoryView.h; sourceTree = "<group>"; };
+		6D1E8965223F894A00E5C92C /* SYKeyboardAccessoryView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SYKeyboardAccessoryView.m; sourceTree = "<group>"; };
 		6DB9E358222CB72A00103CC8 /* SYControlSet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SYControlSet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DB9E35B222CB72A00103CC8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6DB9E35C222CB72A00103CC8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -58,6 +68,8 @@
 		6DB9E398222D291700103CC8 /* SYTradePwdVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SYTradePwdVC.m; sourceTree = "<group>"; };
 		6DB9E39A222D2E8700103CC8 /* SYListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SYListVC.h; sourceTree = "<group>"; };
 		6DB9E39B222D2E8700103CC8 /* SYListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SYListVC.m; sourceTree = "<group>"; };
+		6DDAA405223B8A33007D76AD /* SYKeyboard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SYKeyboard.h; sourceTree = "<group>"; };
+		6DDAA406223B8A33007D76AD /* SYKeyboard.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SYKeyboard.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +97,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6D1E8963223F372700E5C92C /* keyBoard */ = {
+			isa = PBXGroup;
+			children = (
+				6DDAA405223B8A33007D76AD /* SYKeyboard.h */,
+				6DDAA406223B8A33007D76AD /* SYKeyboard.m */,
+				6D1E895D223F371000E5C92C /* SYKeyObject.h */,
+				6D1E895E223F371000E5C92C /* SYKeyObject.m */,
+				6D1E8960223F371F00E5C92C /* SYKeyView.h */,
+				6D1E8961223F371F00E5C92C /* SYKeyView.m */,
+				6D1E8964223F894A00E5C92C /* SYKeyboardAccessoryView.h */,
+				6D1E8965223F894A00E5C92C /* SYKeyboardAccessoryView.m */,
+			);
+			path = keyBoard;
+			sourceTree = "<group>";
+		};
 		6D826A16222E0F440072167A /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -152,6 +179,7 @@
 		6DB9E38D222CBA1A00103CC8 /* TradePwdInput */ = {
 			isa = PBXGroup;
 			children = (
+				6D1E8963223F372700E5C92C /* keyBoard */,
 				6DB9E391222D1F6700103CC8 /* SYTradePwdInput.h */,
 				6DB9E392222D1F6700103CC8 /* SYTradePwdInput.m */,
 				6DB9E397222D291700103CC8 /* SYTradePwdVC.h */,
@@ -289,12 +317,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D1E8966223F894A00E5C92C /* SYKeyboardAccessoryView.m in Sources */,
 				6DB9E36B222CB72C00103CC8 /* main.m in Sources */,
 				6DB9E35D222CB72A00103CC8 /* AppDelegate.m in Sources */,
 				6DB9E393222D1F6700103CC8 /* SYTradePwdInput.m in Sources */,
+				6DDAA407223B8A33007D76AD /* SYKeyboard.m in Sources */,
+				6D1E895F223F371000E5C92C /* SYKeyObject.m in Sources */,
 				6DB9E396222D271100103CC8 /* SYCellData.m in Sources */,
 				6DB9E39C222D2E8700103CC8 /* SYListVC.m in Sources */,
 				6DB9E399222D291700103CC8 /* SYTradePwdVC.m in Sources */,
+				6D1E8962223F371F00E5C92C /* SYKeyView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -458,14 +490,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6VQW3UT8MQ;
 				INFOPLIST_FILE = SYControlSet/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = SY.SYControlSet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Debug;
 		};
@@ -474,7 +510,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6VQW3UT8MQ;
 				INFOPLIST_FILE = SYControlSet/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -482,6 +520,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = SY.SYControlSet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Release;
 		};

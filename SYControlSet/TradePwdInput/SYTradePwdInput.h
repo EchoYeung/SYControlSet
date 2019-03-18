@@ -16,7 +16,7 @@ UIKIT_EXTERN NSString *const SYPwdInputDidChangeNotification;
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SYTradePwdInput : UIControl
+@interface SYTradePwdInput : UIControl<UIKeyInput>
 @property (nullable, nonatomic, weak) id<SYTradePwsInputDelegate> delegate;
 //获取用户输入内容
 @property (nullable, nonatomic, copy, readonly) NSString *text;
@@ -26,6 +26,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL isSecureText;
 //单元格之间间隙
 @property (nonatomic, assign) NSInteger unitSpace;
+@property (nullable, nonatomic, strong, readwrite) UIView *inputView;
+@property (nullable, nonatomic, strong, readwrite) UIView *inputAccessoryView;
 @end
 
 @protocol SYTradePwsInputDelegate <NSObject>
