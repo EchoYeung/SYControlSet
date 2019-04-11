@@ -24,17 +24,18 @@
     self.input.inputView = keyboard;
     SYKeyboardAccessoryView *accessoryView = [[SYKeyboardAccessoryView alloc] initWithFrame:CGRectMake(0, 0, 0, 50)];
     accessoryView.resetKey = ^{
-        SYKeyboard *view = self.input.inputView;
+        SYKeyboard *view = (SYKeyboard *)self.input.inputView;
         [view resetNumKeys];
     };
     accessoryView.disorderKey = ^{
-        SYKeyboard *view = self.input.inputView;
+        SYKeyboard *view = (SYKeyboard *)self.input.inputView;
         [view disorderNumKeys];
     };
     self.input.inputAccessoryView = accessoryView;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tradePwsInputEditingChanged:) name:SYPwdInputDidChangeNotification object:nil];
     
-
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction:)];
+    [self.view addGestureRecognizer:tap];
 }
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -42,6 +43,10 @@
 }
 - (void)dealloc{
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+#pragma mark - Private
+- (void)tapAction:(UIGestureRecognizer *)ges{
+    [self.input resignFirstResponder];
 }
 #pragma mark - Getter
 - (SYTradePwdInput *)input{

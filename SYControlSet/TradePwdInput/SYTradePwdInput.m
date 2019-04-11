@@ -207,6 +207,10 @@ NSString *const SYPwdInputDidChangeNotification = @"SYPwdInputDidChangeNotificat
     [self _resize];
 }
 #pragma mark - override(UIResponder)
+//阻止输入控件响应添加的手势
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer{
+    return NO;
+}
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     [super touchesBegan:touches withEvent:event];
     [self becomeFirstResponder];
